@@ -1,0 +1,5 @@
+{
+  "name": "summer-meadow",
+  "owner": { "name": "Danez-AI" },
+  "plugins": [{ "name": "summer-meadow", "source": "./" }]
+}
