@@ -1,6 +1,7 @@
 // Original painterly countryside: drifting cumulus, rolling hills, swaying grass.
-// Day sky in light mode; dusk-blue sky with moon, stars and fireflies in dark mode.
-// shortcut: the scene follows the OS prefers-color-scheme (Backdrop props carry no mode), so it can disagree with an app-only theme toggle; upgrade if the API ever passes the mode.
+// A night meadow with moon, stars, fireflies and falling cherry petals, in both app modes.
+// shortcut: night only, because a colour-scheme @media rule freezes the animation on Desktop 5.11492.5
+// and Backdrop props carry no mode; add a day scene once either changes.
 
 const cloud = (id: string) => `
   <g id="${id}">
@@ -90,21 +91,18 @@ export const SCENE =`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http:/
   @keyframes tumble{from{transform:rotate(-40deg) scaleX(1)}to{transform:rotate(80deg) scaleX(.35)}}
   @keyframes twinkle{0%,100%{opacity:.25}50%{opacity:1}}
   @keyframes glow{0%,100%{opacity:0;transform:translate(0,0)}50%{opacity:1;transform:translate(14px,-18px)}}
-  @media (prefers-color-scheme: dark){
-    .day{opacity:0}.night{opacity:1}
-    .sky{fill:url(#skyNight)}
-    .cl{fill:#6b80a8;opacity:.85}
-    .cl-shade{fill:#4a5d84;opacity:.8}
-    .h1{fill:#2c3f4f}.h2{fill:#22353f}.h3{fill:#1a2b31}.h4{fill:#132226}
-    .blade{stroke:#1d3a2c}
-    .seed{display:none}
-    .tree{fill:#16291f}.trunk{fill:#1f1914}
-    .star{fill:#fdfbe8;animation:twinkle ease-in-out infinite}
-    .fly{fill:#e9ff8a;animation:glow ease-in-out infinite}
-    .pp{fill:#d9a7c0;opacity:.55}
-  }
-  .star,.fly{opacity:0}
-  @media (prefers-color-scheme: dark){.star,.fly{opacity:1}}
+  /* Night, always: no colour-scheme media query here (see the note at the top of scene.ts). */
+  .day{opacity:0}.night{opacity:1}
+  .sky{fill:url(#skyNight)}
+  .cl{fill:#6b80a8;opacity:.85}
+  .cl-shade{fill:#4a5d84;opacity:.8}
+  .h1{fill:#2c3f4f}.h2{fill:#22353f}.h3{fill:#1a2b31}.h4{fill:#132226}
+  .blade{stroke:#1d3a2c}
+  .seed{display:none}
+  .tree{fill:#16291f}.trunk{fill:#1f1914}
+  .star{fill:#fdfbe8;animation:twinkle ease-in-out infinite}
+  .fly{fill:#e9ff8a;animation:glow ease-in-out infinite}
+  .pp{fill:#d9a7c0;opacity:.55}
   @media (prefers-reduced-motion: reduce){*{animation:none!important}}
 </style>
 <rect class="sky" width="1600" height="1000"/>

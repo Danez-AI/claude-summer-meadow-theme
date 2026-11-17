@@ -2,9 +2,10 @@
 
 A painterly, anime-style summer countryside behind your Claude Code chat in the Claude Desktop app.
 
-- **Day:** a bright blue sky with a glowing sun, drifting cumulus clouds, rolling green hills, swaying grass and floating dandelion seeds.
-- **Night:** a deep blue sky with a moon, twinkling stars and fireflies over the meadow.
-- **Both:** cherry blossom petals falling and tumbling across the whole view, plus matching interface colors for light and dark mode.
+- **The scene:** a deep blue night sky with a glowing moon and twinkling stars, drifting clouds, rolling hills, swaying grass, fireflies, and cherry blossom petals falling and tumbling across the whole view.
+- **The colors:** matching interface colors for both light and dark mode.
+
+The scene is night-only for now: on Desktop 5.11492.5, a light/dark `@media` rule in a scene stops its animation ([#109766](https://github.com/anthropics/claude-code/issues/109766)), so one scene serves both modes.
 
 All artwork is original and drawn in SVG by the mod; it copies no show, studio or character. Motion stops when your system asks for reduced motion.
 
@@ -30,6 +31,15 @@ Then start a new local session in the Desktop app's Code tab. If the theme doesn
 
 - Claude Desktop with Claude Code 2.1.323 or later in the Code tab (type `/status` in a Code tab session to check).
 - **Windows: turn on Transparency effects** (Settings → Personalization → Colors → Transparency effects). With it off, the Desktop app draws the theme's colors but skips the animated background, with no error. This applies to Anthropic's own `theme-examples` themes too.
+
+## If the scene freezes or doesn't show
+
+These are known Desktop app issues on 5.11492.5, not this mod:
+
+- **Install it, don't load it from a folder.** A mod loaded from a folder (a session's mods folder, `~/.claude/skills/`, or `CLAUDE_CODE_PLUGIN_DIRS`) can animate for a few seconds and then freeze; the same mod installed with the lines above keeps animating ([#109766](https://github.com/anthropics/claude-code/issues/109766)). Don't keep a folder copy loaded alongside the installed one.
+- **New session, `/clear`, or a reopened archived session:** no theme shows until you send a message.
+- **No theme in any session after an app restart:** restart the app again ([#109853](https://github.com/anthropics/claude-code/issues/109853)).
+- **Another theme mod:** a session shows one theme at a time, so a theme from another mod (such as `/custom-theme` from `theme-examples`) replaces this one there.
 
 ## If you can't turn on transparency
 
